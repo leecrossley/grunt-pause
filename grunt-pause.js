@@ -1,19 +1,21 @@
 var inquirer = require("inquirer");
 
 exports = module.exports = (function () {
-    var pause = {}, grunt, hooker, task, first = true;
+    var pause = {}, grunt, hooker, task;
 
     var showPrompt = function (done) {
-        if (first) {
-            first = false;
-            return done();
-        }
         inquirer.prompt([question], function (val) {
             if (!val.continue) {
                 grunt.task.clearQueue();
             }
             done();
         });
+    };
+
+    var shouldPause = function (done) {
+        return task !== grunt.task.current.nameArgs &&
+            grunt.task._queue.length > 2 &&
+            grunt.task.current.nameArgs !== "grunt-pause";
     };
 
     var question = {
@@ -32,12 +34,11 @@ exports = module.exports = (function () {
         });
 
         hooker.hook(grunt.log, "header", function () {
-            if (grunt.task.current.nameArgs === "grunt-pause") {
-                return;
-            }
             if (!task) {
                 task = grunt.task.current.nameArgs;
-            } else if (task !== grunt.task.current.nameArgs) {
+                return;
+            }
+            if (shouldPause()) {
                 grunt.task.run("grunt-pause");
             }
         });
