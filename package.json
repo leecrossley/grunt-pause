@@ -36,7 +36,6 @@
     "grunt-contrib-jshint": "~0.7.x"
   },
   "dependencies": {
-    "cli-prompt": "0.3.x",
-    "bash-color": "0.0.x"
+    "inquirer": "~0.3.x"
   }
 }

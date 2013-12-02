@@ -5,10 +5,6 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON("package.json"),
         jshint: {
             all: ["*.js"]
-        },
-        watch: {
-            files: ["*.js"],
-            tasks: ["jshint"]
         }
     });
     grunt.task.registerTask("run", "runs a task that lasts the designated number of ms", function (ms) {
@@ -18,7 +14,6 @@ module.exports = function (grunt) {
             done();
         }, parseInt(ms, 10));
     });
-    grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-jshint");
-    grunt.registerTask("test", ["jshint", "run:100", "run:500", "run:1000"]);
+    grunt.registerTask("default", ["jshint", "run:100", "run:500", "run:1000"]);
 };
