@@ -1,9 +1,9 @@
 {
   "name": "grunt-pause",
   "author": "Lee Crossley <leee@hotmail.co.uk> (http://ilee.co.uk/)",
-  "description": "Pause the grunt task runner between tasks.",
+  "description": "Pause the grunt task runner between tasks and choose to continue or break",
   "homepage": "http://ilee.co.uk",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "grunt-pause.js",
   "keywords": [
     "grunt",
@@ -14,7 +14,8 @@
     "step",
     "confirm",
     "continue",
-    "stop"
+    "stop",
+    "break"
   ],
   "contributors": [
     {

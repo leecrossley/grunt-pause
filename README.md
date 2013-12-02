@@ -1,8 +1,6 @@
 # grunt-pause [![Dependency Status](https://david-dm.org/leecrossley/grunt-pause.png)](https://david-dm.org/leecrossley/grunt-pause) [![devDependency Status](https://david-dm.org/leecrossley/grunt-pause/dev-status.png)](https://david-dm.org/leecrossley/grunt-pause#info=devDependencies)
 
-### **WIP**
-
-**grunt-pause allows you to pause the grunt task runner between tasks**
+**grunt-pause allows you to pause the grunt task runner between tasks. You can then choose whether or not to continue running the remaining tasks or clear the task queue.**
 
 ## Getting started
 
