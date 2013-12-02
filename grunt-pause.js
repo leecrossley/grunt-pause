@@ -3,46 +3,42 @@ var inquirer = require("inquirer");
 exports = module.exports = (function () {
     var pause = {}, grunt, hooker, task, first = true;
 
-    var showPrompt = function (callback) {
+    var showPrompt = function (done) {
         if (first) {
             first = false;
-            return;
+            return done();
         }
         inquirer.prompt([question], function (val) {
-            if (val.toLowerCase() === "n") {
+            if (!val.continue) {
                 grunt.task.clearQueue();
             }
+            done();
         });
-    };
-
-    var validate = function (input) {
-        var done = this.async();
-        setTimeout(function() {
-            if (input.toLowerCase() === "y") {
-                done();
-                return;
-            }
-            done("Break");
-        }, 10);
     };
 
     var question = {
         type: "confirm",
         name: "continue",
-        message: "Continue?",
-        validate: validate
+        message: "Continue?"
     };
 
     pause.init = function (_grunt) {
         grunt = _grunt;
         hooker = grunt.util.hooker;
 
+        grunt.task.registerTask("grunt-pause", "pause prompt", function () {
+            var done = this.async();
+            showPrompt(done);
+        });
+
         hooker.hook(grunt.log, "header", function () {
+            if (grunt.task.current.nameArgs === "grunt-pause") {
+                return;
+            }
             if (!task) {
                 task = grunt.task.current.nameArgs;
             } else if (task !== grunt.task.current.nameArgs) {
-                grunt.util.spawn(options, doneFunction);
-                showPrompt();
+                grunt.task.run("grunt-pause");
             }
         });
 
