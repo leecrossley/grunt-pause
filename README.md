@@ -2,6 +2,8 @@
 
 **grunt-pause allows you to pause the grunt task runner between tasks. You can then choose whether or not to continue running the remaining tasks or clear the task queue.**
 
+![grunt-pause console](https://raw.github.com/leecrossley/grunt-pause/master/grunt-pause.png)
+
 ## Getting started
 
 ### Install grunt-pause
