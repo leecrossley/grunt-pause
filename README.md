@@ -26,3 +26,7 @@ Add the pause init call at the top of the module.exports function:
 module.exports = function (grunt) {
     pause.init(grunt);
 ```
+
+## License
+
+[MIT License](http://ilee.mit-license.org)
