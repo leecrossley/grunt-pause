@@ -37,6 +37,6 @@
     "grunt-contrib-jshint": "~0.10.x"
   },
   "dependencies": {
-    "inquirer": "~0.4.x"
+    "inquirer": "~0.5.x"
   }
 }
