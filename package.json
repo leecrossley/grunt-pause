@@ -3,7 +3,7 @@
   "author": "Lee Crossley <leee@hotmail.co.uk> (http://ilee.co.uk/)",
   "description": "Pause the grunt task runner between tasks and choose to continue or break",
   "homepage": "http://ilee.co.uk",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "grunt-pause.js",
   "keywords": [
     "grunt",
@@ -31,10 +31,10 @@
     "node": ">= 0.8.x"
   },
   "devDependencies": {
-    "grunt": "~0.4.x",
-    "grunt-contrib-jshint": "~0.10.x"
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.0"
   },
   "dependencies": {
-    "inquirer": "~0.8.x"
+    "inquirer": "^0.8.0"
   }
 }
